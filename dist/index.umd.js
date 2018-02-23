@@ -1540,11 +1540,9 @@ async function getArticle(articleId) {
   const articleKey = articleId.toString();
 
   if (cache[articleKey]) {
-    console.log(`Loading article ${articleKey} from cache`);
     return cache[articleKey];
   }
 
-  console.log(`Fetching article ${articleKey} from API`);
   const articleJson = await loadArticle(articleId);
   cache[articleKey] = articleJson;
   return articleJson;
