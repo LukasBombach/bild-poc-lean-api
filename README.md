@@ -39,8 +39,7 @@ const stage = await getStage(['5a8ff28dcf820a00015bf0d4', '5a901b631aed5700010be
         "teaserImg": "Public URL to an image",
         "teaserText": "The body text without markup and cut off after some characters",
         "body": "The full body text including markup"
-    },
-    // ...
+    }
 ]
 ```
 
