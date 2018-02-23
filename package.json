@@ -6,7 +6,6 @@
     "browser": "dist/index.umd.js",
     "license": "MIT",
     "dependencies": {
-        "express": "4.16.2",
         "node-fetch": "2.0.0"
     },
     "devDependencies": {
@@ -15,9 +14,8 @@
         "rollup-plugin-node-resolve": "3.0.3"
     },
     "scripts": {
-        "server": "node $NODE_DEBUG_OPTION server/server.js",
-        "lib-build": "rollup -c",
-        "lib-dev": "rollup -c -w"
+        "build": "rollup -c",
+        "dev": "rollup -c -w"
     },
     "files": [
         "dist"
