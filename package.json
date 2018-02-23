@@ -1,0 +1,25 @@
+{
+    "name": "data-api",
+    "version": "1.0.0",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.esm.js",
+    "browser": "dist/index.umd.js",
+    "license": "MIT",
+    "dependencies": {
+        "express": "4.16.2",
+        "node-fetch": "2.0.0"
+    },
+    "devDependencies": {
+        "rollup": "0.56.2",
+        "rollup-plugin-commonjs": "8.3.0",
+        "rollup-plugin-node-resolve": "3.0.3"
+    },
+    "scripts": {
+        "server": "node $NODE_DEBUG_OPTION server/server.js",
+        "lib-build": "rollup -c",
+        "lib-dev": "rollup -c -w"
+    },
+    "files": [
+        "dist"
+    ]
+}
