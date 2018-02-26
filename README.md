@@ -56,11 +56,13 @@ If you request and article ID that cannot be found, the following object will be
 ```
 
 Also, sometimes you will get an article that does not have a teaser yet, in that case, the fields `teaserImg` 
-and `teaserText` will be omitted and you will get a response like this:
+and `teaserText` will be null and you will get a response like this:
 
 ```json
 {
     "title": "Title of the Article",
+    "teaserImg": null,
+    "teaserText": null,
     "body": "The full body text including markup"
 }
 ```
