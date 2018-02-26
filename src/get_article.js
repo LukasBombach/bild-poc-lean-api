@@ -37,7 +37,7 @@ function getArticleJson(responseJson) {
 
 function getTeaserJson(responseJson) {
   const teaser = responseJson.teasers.variants[0];
-  const teaserText = teaser.data.blocks[0].text;
+  const teaserText = teaser.teaserText.data.blocks[0].text;
   const teaserImg = teaser.imageFragment ? teaser.imageFragment.image.binaryPath : '';
   return { teaserImg, teaserText }
 }
