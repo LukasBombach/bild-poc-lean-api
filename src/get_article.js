@@ -26,13 +26,20 @@ async function loadArticle(articleId) {
 }
 
 function getArticleJson(responseJson) {
+  if (!responseJson.cmsId) return { error: true, errorId: 1, message: 'Article not found' };
   const title = responseJson.headlinePlain;
-  const teaserImg = responseJson.teasers.variants[0].imageFragment.image.binaryPath;
-  const teaserText = responseJson.teasers.variants[0].teaserText.data.blocks[0].text;
+  const teaser = getTeaserJson(responseJson);
   const body = responseJson.text.data.blocks
     .map(textBlock => `<p>${textBlock.text}</p>`)
     .join('');
-  return { title, teaserImg, teaserText, body };
+  return { title, ...teaser, body };
+}
+
+function getTeaserJson(responseJson) {
+  const teaser = responseJson.teasers.variants[0];
+  const teaserText = teaser.data.blocks[0].text;
+  const teaserImg = teaser.imageFragment ? teaser.imageFragment.image.binaryPath : '';
+  return { teaserImg, teaserText }
 }
 
 module.exports = getArticle;
