@@ -31,8 +31,7 @@ function getArticleJson(responseJson) {
   const title = responseJson.headlinePlain;
   const { teaserImg, teaserText } = getTeaserJson(responseJson);
   const body = responseJson.text.data.blocks
-    .map(textBlock => `<p>${textBlock.text}</p>`)
-    .join('');
+    .map(({ text, type }) => ({ text, type }));
   return { title, teaserImg, teaserText, body };
 }
 
