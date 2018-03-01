@@ -6,11 +6,13 @@
     "browser": "dist/index.umd.js",
     "license": "MIT",
     "dependencies": {
-        "node-fetch": "2.0.0"
+        "es6-promise": "4.2.4",
+        "isomorphic-fetch": "2.2.1"
     },
     "devDependencies": {
         "rollup": "0.56.2",
         "rollup-plugin-commonjs": "8.3.0",
+        "rollup-plugin-json": "^2.3.0",
         "rollup-plugin-node-resolve": "3.0.3"
     },
     "scripts": {

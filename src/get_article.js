@@ -1,4 +1,5 @@
-const fetch = require('node-fetch');
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 const CONTENT_API_BASE_URL = 'http://content-server.editorial-dev.svc.bildops.de/contentapi/v1/document/';
 const cache = {};
@@ -28,11 +29,10 @@ async function loadArticle(articleId) {
 function getArticleJson(responseJson) {
   if (!responseJson.cmsId) return { error: true, errorId: 1, message: 'Article not found' };
   const title = responseJson.headlinePlain;
-  const teaser = getTeaserJson(responseJson);
+  const { teaserImg, teaserText } = getTeaserJson(responseJson);
   const body = responseJson.text.data.blocks
-    .map(textBlock => `<p>${textBlock.text}</p>`)
-    .join('');
-  return { title, ...teaser, body };
+    .map(({ text, type }) => ({ text, type }));
+  return { title, teaserImg, teaserText, body };
 }
 
 function getTeaserJson(responseJson) {
