@@ -6147,11 +6147,12 @@ async function loadArticle(articleId) {
 
 function getArticleJson(responseJson) {
   if (!responseJson.cmsId) return { error: true, errorId: 1, message: 'Article not found' };
+  const id = responseJson.cmsId;
   const title = responseJson.headlinePlain;
   const { teaserImg, teaserText } = getTeaserJson(responseJson);
   const body = responseJson.text.data.blocks
-    .map(({ cmsId, text, type }) => ({ id: cmsId, text, type }));
-  return { title, teaserImg, teaserText, body };
+    .map(({ text, type }) => ({ text, type }));
+  return { id, title, teaserImg, teaserText, body };
 }
 
 function getTeaserJson(responseJson) {
