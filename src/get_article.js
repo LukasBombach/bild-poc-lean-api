@@ -1,6 +1,3 @@
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
-
 const CONTENT_API_BASE_URL = 'http://content-server.editorial-dev.svc.bildops.de/contentapi/v1/document/';
 const cache = {};
 
